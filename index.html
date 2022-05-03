@@ -7,12 +7,30 @@
     <title>Document</title>
 </head>
 <body>
+    
+    <!-- 日付表示エリア -->
+    <section class="date_area">
+        <span id="weekday"></span>
+        <span id="day"></span>
+        <span id="month"></span>
+    </section>
+
+    <!-- 地名表示 -->
+    <section class="city_area">
+        <span id="weatherCity"></span>
+    </section>
+
+    <!-- 天気表示エリア -->
+    <section class="weather_area">
+
+    </section>
     <h1>お天気アプリ</h1>
     <div>
         <h2>都市名</h2>
-        <p id="weatherCity"></p>
+        <!-- <p id="weatherCity"></p> -->
         <h2>天気</h2>
         <p id="weatherMain"></p>
+        <img id="weatherIcon">
         <h2>天気詳細</h2>
         <p id="weatherDescription"></p>
         <h2>気温</h2>
@@ -25,14 +43,14 @@
         <p id="weatherFeels_like"></p>
     </div>
 
-    <div>
-        <button class="city" value="Ikebukuro" id="ikb">イケブクロ</button>
-        <button class="city" value="Yokohama">ヨコハマ</button>
-        <button class="city" value="Shibuya">シブヤ</button>
-        <button class="city" value="Shinjuku">シンジュク</button>
-        <button class="city" value="Nagoya">ナゴヤ</button>
-        <button class="city" value="Osaka">オオサカ</button>
-    </div>
+    <section class="button_area">
+        <button class="btn_city" value="Ikebukuro">イケブクロ</button>
+        <button class="btn_city" value="Yokohama">ヨコハマ</button>
+        <button class="btn_city" value="Shibuya">シブヤ</button>
+        <button class="btn_city" value="Shinjuku">シンジュク</button>
+        <button class="btn_city" value="Nagoya">ナゴヤ</button>
+        <button class="btn_city" value="Osaka">オオサカ</button>
+    </section>
 
     <script src="./js/index.js"></script>
 </body>
