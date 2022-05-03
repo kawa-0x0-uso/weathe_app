@@ -10,7 +10,7 @@ let set_city = function (city) {
 };
 
 // 都市取得イベント発火
-document.querySelectorAll(".city").forEach(function (city) {
+document.querySelectorAll(".btn_city").forEach(function (city) {
     city.addEventListener("click", set_city);
 });
 
@@ -18,11 +18,12 @@ document.querySelectorAll(".city").forEach(function (city) {
 async function callApi(city){
     const res = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&lang=ja&APPID=" + API_KEY);
     const weather = await res.json();
-
+    console.log(weather);
     // 取得したい情報と値を配列に格納
     const weather_Info ={
         weatherCity : city,
         weatherMain : weather.weather[0].main,
+        weatherIcon : "https://openweathermap.org/img/wn/" + weather.weather[0].icon + "@2x.png",
         weatherDescription : weather.weather[0].description,
         weatherTemp : weather.main.temp,
         weatherTemp_max : weather.main.temp_max,
@@ -34,5 +35,12 @@ async function callApi(city){
     for (let key in weather_Info) {
         let weatheDate = document.getElementById(key);
         weatheDate.innerText = weather_Info[key];
+        if(key == "weatherIcon"){
+            console.log(weatheDate);
+            console.log(key);
+            console.log(key.src);
+            weatheDate.src=weather_Info[key];
+            weatheDate.innerText = "";
+        }
     }
 };
