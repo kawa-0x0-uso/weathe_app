@@ -4,54 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
-    
-    <!-- 日付表示エリア -->
-    <section class="date_area">
-        <span id="weekday"></span>
-        <span id="day"></span>
-        <span id="month"></span>
-    </section>
+    <main>
+        <!-- 日付表示エリア -->
+        <section class="date_area">
+            <span id="weekday"></span>
+            <span id="day"></span>
+            <span id="month"></span>
+        </section>
 
-    <!-- 地名表示 -->
-    <section class="city_area">
-        <span id="weatherCity"></span>
-    </section>
+        <!-- 地名表示 -->
+        <section class="city_area">
+            <span id="weatherCity"></span>
+        </section>
 
-    <!-- 天気表示エリア -->
-    <section class="weather_area">
+        <!-- 天気表示エリア -->
+        <section class="weather_area">
+            <p id="weatherMain"></p>
+            <div class="main_area">
+                <div class="weather_img">
+                    <img id="weatherIcon">
+                </div>
+                <div class="weather_temp">
+                    <span id="weatherTemp"></span>
+                    <span id="weatherTemp_max"></span>
+                    <span id="weatherTemp_min"></span>
+                </div>
+            </div>
+            <p id="weatherDescription"></p>
+            <p id="weatherFeels_like"></p>
+        </section>
 
-    </section>
-    <h1>お天気アプリ</h1>
-    <div>
-        <h2>都市名</h2>
-        <!-- <p id="weatherCity"></p> -->
-        <h2>天気</h2>
-        <p id="weatherMain"></p>
-        <img id="weatherIcon">
-        <h2>天気詳細</h2>
-        <p id="weatherDescription"></p>
-        <h2>気温</h2>
-        <p id="weatherTemp"></p>
-        <h2>最高気温</h2>
-        <p id="weatherTemp_max"></p>
-        <h2>最低気温</h2>
-        <p id="weatherTemp_min"></p>
-        <h2>体感温度</h2>
-        <p id="weatherFeels_like"></p>
-    </div>
-
-    <section class="button_area">
-        <button class="btn_city" value="Ikebukuro">イケブクロ</button>
-        <button class="btn_city" value="Yokohama">ヨコハマ</button>
-        <button class="btn_city" value="Shibuya">シブヤ</button>
-        <button class="btn_city" value="Shinjuku">シンジュク</button>
-        <button class="btn_city" value="Nagoya">ナゴヤ</button>
-        <button class="btn_city" value="Osaka">オオサカ</button>
-    </section>
-
+        <section class="button_area">
+            <button class="btn_city" value="Ikebukuro">イケブクロ</button>
+            <button class="btn_city" value="Yokohama">ヨコハマ</button>
+            <button class="btn_city" value="Shibuya">シブヤ</button>
+            <button class="btn_city" value="Shinjuku">シンジュク</button>
+            <button class="btn_city" value="Nagoya">ナゴヤ</button>
+            <button class="btn_city" value="Osaka">オオサカ</button>
+        </section>
+    </main>
     <script src="./js/index.js"></script>
 </body>
 </html>
