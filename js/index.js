@@ -3,6 +3,30 @@ const API_KEY = "5ad1350dbe77f2d0fd0cb99858d989e5";
 // 都市名を格納する変数
 let city ="";
 
+function getDate(){
+    // 月表示フォーマット
+    const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    // 曜日表示フォーマット
+    const weekdays = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    //　日付取得用
+    const today = new Date();
+    // 曜日の取得と出力
+    let dateSet = document.getElementById("weekday");
+    dateSet.innerText = weekdays[today.getDay()];
+    // 日付の取得と出力
+    dateSet = document.getElementById("day");
+    dateSet.innerText = ("0"+today.getDate()).slice(-2);
+    // 月の取得と出力
+    dateSet = document.getElementById("month");
+    dateSet.innerText = months[today.getMonth()];
+
+    console.log(months[today.getMonth()]);
+    console.log(("0"+today.getDate()).slice(-2));
+    console.log(weekdays[today.getDay()]);
+};
+
+getDate();
+
 // 押下された都市を取得する
 let set_city = function (city) {
     city = this.value;
@@ -33,14 +57,17 @@ async function callApi(city){
 
     // 配列から値を取り出し画面に出力
     for (let key in weather_Info) {
-        let weatheDate = document.getElementById(key);
-        weatheDate.innerText = weather_Info[key];
-        if(key == "weatherIcon"){
-            console.log(weatheDate);
-            console.log(key);
-            console.log(key.src);
-            weatheDate.src=weather_Info[key];
-            weatheDate.innerText = "";
+        let weatherDate = document.getElementById(key);
+
+        switch(key){
+            case "weatherIcon" :
+                weatherDate.src=weather_Info[key];
+                break;
+            case "weatherFeels_like":
+                weatherDate.innerText = "体感温度は" + weather_Info[key] + "° です。";
+                break;
+            default:
+                weatherDate.innerText = weather_Info[key];
         }
     }
 };
