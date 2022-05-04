@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #2E2E2E;
+  color: #fff;
+  font-size: 1.6em;
+}
+
+main {
+  width: 90%;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.date_area {
+  font-size: 3.2rem;
+}
+/*# sourceMappingURL=style.css.map */
