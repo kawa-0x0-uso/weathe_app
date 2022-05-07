@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Press+Start+2P&display=swap');
+
+// 装飾用クラス
+.textfont{
+    font-family: "DotGothic16";
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -11,6 +18,7 @@ body{
     background-color: #2E2E2E;
     color: #fff;
     font-size: 1.6em;
+    font-family: 'Press Start 2P','DotGothic16', sans-serif;
 }
 
 main{
@@ -21,4 +29,53 @@ main{
 
 .date_area{
     font-size: 3.2rem;
+    letter-spacing: 2px;
+}
+
+.city_area{
+    margin: 2rem 0 5.4rem;
+}
+
+.main_area{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .weather_img {
+        width: 17rem;
+        & img{
+            width: 100%;
+        }
+    }
+
+    .weather_temp {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    
+        .temp{
+            font-size: 4.8rem;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+.button_area {
+    margin-top: 2rem;
+
+    button.btn_city {
+        width: 12rem;
+        height: 7rem;
+        background-color: #2E2E2E;
+        color: #fff;
+        border: #fff solid 2px;
+        margin: 1rem;
+        border-radius: 1rem;
+    }
+}
+
+.license{
+    width: 80%;
+    font-size: 0.8rem;
+    margin: 5rem auto 0;
 }
