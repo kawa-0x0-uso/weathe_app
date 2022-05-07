@@ -63,8 +63,17 @@ async function callApi(city){
             case "weatherIcon" :
                 weatherDate.src=weather_Info[key];
                 break;
+            case "weatherTemp" :
+                weatherDate.innerText = Math.round(weather_Info[key]) + "°";
+                break;
+            case "weatherTemp_max" :
+                weatherDate.innerText = "H " + Math.round(weather_Info[key])+ "°";
+                break;
+            case "weatherTemp_min" :
+                weatherDate.innerText = "L " + Math.round(weather_Info[key]) + "°";
+                break;
             case "weatherFeels_like":
-                weatherDate.innerText = "体感温度は" + weather_Info[key] + "° です。";
+                weatherDate.innerText = "体感温度は" + Math.round(weather_Info[key]) + "° です。";
                 break;
             default:
                 weatherDate.innerText = weather_Info[key];
