@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
 <body>
     <main>
         <!-- 日付表示エリア -->
-        <section class="date_area">
+        <section id = "dateArea" class="date_area">
             <span id="weekday"></span>
             <span id="day"></span>
             <span id="month"></span>
@@ -30,7 +31,7 @@
                 </div>
                 <div class="weather_temp">
                     <span id="weatherTemp" class="temp"></span>
-                    <div class="temp_minmax">
+                    <div id="temp_minmax">
                         <span id="weatherTemp_max"></span>
                         <span id="weatherTemp_min"></span>
                     </div>    
@@ -40,15 +41,18 @@
             <p id="weatherFeels_like" class="textfont"></p>
         </section>
 
+        <section id="iconsArea" class="icons_area"></section>
+
         <section class="button_area">
-            <button class="btn_city" value="Ikebukuro">イケブクロ</button>
-            <button class="btn_city" value="Yokohama">ヨコハマ</button>
-            <button class="btn_city" value="Shibuya">シブヤ</button>
-            <button class="btn_city" value="Shinjuku">シンジュク</button>
-            <button class="btn_city" value="Nagoya">ナゴヤ</button>
-            <button class="btn_city" value="Osaka">オオサカ</button>
+            <button class="btn_city Ikebukuro" value="Ikebukuro">イケブクロ</button>
+            <button class="btn_city Yokohama" value="Yokohama">ヨコハマ</button>
+            <button class="btn_city Shibuya" value="Shibuya">シブヤ</button>
+            <button class="btn_city Shinjuku" value="Shinjuku">シンジュク</button>
+            <button class="btn_city Nagoya" value="Nagoya">ナゴヤ</button>
+            <button class="btn_city Osaka" value="Osaka">オオサカ</button>
         </section>
     </main>
+
     <script src="./js/index.js"></script>
 </body>
 </html>
