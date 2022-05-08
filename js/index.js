@@ -19,10 +19,6 @@ function getDate(){
     // 月の取得と出力
     dateSet = document.getElementById("month");
     dateSet.innerText = months[today.getMonth()];
-
-    console.log(months[today.getMonth()]);
-    console.log(("0"+today.getDate()).slice(-2));
-    console.log(weekdays[today.getDay()]);
 };
 
 getDate();
@@ -42,7 +38,23 @@ document.querySelectorAll(".btn_city").forEach(function (city) {
 async function callApi(city){
     const res = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&lang=ja&APPID=" + API_KEY);
     const weather = await res.json();
-    console.log(weather);
+
+    const icons = {
+        common : "fa-solid",
+        Ikebukuro : ["fa-headphones","fa-futbol","fa-chess"],
+        Yokohama : ["fa-skull","fa-handcuffs","fa-dharmachakra"],
+        Shibuya : ["fa-candy-cane","fa-dice","fa-pen-nib"],
+        Shinjuku : ["fa-crutch","fa-champagne-glasses","fa-capsules"],
+        Nagoya : ["fa-vihara","fa-moon","fa-scale-balanced"],
+        Osaka : ["fa-cat","fa-chalkboard-user","fa-masks-theater"]
+    };
+
+    const parent = document.getElementById("temp_minmax");
+    
+    // 日付の表示をテーマカラーに変更する
+    let dateArea = document.getElementById("dateArea");
+    dateArea.classList.add("class",city);
+
     // 取得したい情報と値を配列に格納
     const weather_Info ={
         weatherCity : city,
@@ -60,6 +72,17 @@ async function callApi(city){
         let weatherDate = document.getElementById(key);
 
         switch(key){
+            case "weatherCity" :
+                weatherDate.innerText = weather_Info[key];
+                weatherDate.setAttribute("class",city);          
+                for(let i = 0;i<3;i++){
+                    const iconsArea = document.getElementById("iconsArea");
+                    let icon = document.createElement("i");
+                    icon.classList.add(icons.common,icons[city][i],city);
+                    iconsArea.appendChild(icon);
+                };
+                break;
+
             case "weatherIcon" :
                 weatherDate.src=weather_Info[key];
                 break;
@@ -67,10 +90,19 @@ async function callApi(city){
                 weatherDate.innerText = Math.round(weather_Info[key]) + "°";
                 break;
             case "weatherTemp_max" :
-                weatherDate.innerText = "H " + Math.round(weather_Info[key])+ "°";
+                
+                let high = document.createElement("span");
+                high.innerText = "H";
+                high.setAttribute("class","high");
+                parent.insertBefore(high,weatherTemp_max);
+                weatherDate.innerText = Math.round(weather_Info[key])+ "°";
                 break;
             case "weatherTemp_min" :
-                weatherDate.innerText = "L " + Math.round(weather_Info[key]) + "°";
+                let low = document.createElement("span");
+                low.innerText = "L";
+                low.setAttribute("class","low");
+                parent.insertBefore(low,weatherTemp_min);
+                weatherDate.innerText = + Math.round(weather_Info[key]) + "°";
                 break;
             case "weatherFeels_like":
                 weatherDate.innerText = "体感温度は" + Math.round(weather_Info[key]) + "° です。";
