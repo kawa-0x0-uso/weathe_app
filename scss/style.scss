@@ -4,6 +4,37 @@
 .textfont{
     font-family: "DotGothic16";
 }
+.high{
+    color: #FF3131;
+}
+.low{
+    color: #00C2FF;
+}
+.Ikebukuro{
+    color: #FF3131;
+    border-color: #FF3131;
+}
+.Yokohama{
+    color: #3190FF;
+    border-color: #3190FF;
+}
+.Shibuya{
+    color: #FFEB3C;
+    border-color: #FFEB3C;
+}
+.Shinjuku{
+    color: #B4B4B4;
+    border-color: #B4B4B4;
+}
+.Nagoya{
+    color: #C82DFF;
+    border-color: #C82DFF;
+}
+.Osaka{
+    color: #FF7715;
+    border-color: #FF7715;
+}
+
 
 *{
     margin: 0;
@@ -51,13 +82,21 @@ main{
     .weather_temp {
         display: flex;
         flex-direction: column;
-        align-items: end;
     
         .temp{
             font-size: 4.8rem;
             margin-bottom: 1rem;
+            margin-left: 3rem;
         }
     }
+}
+
+.icons_area {
+    display: flex;
+    justify-content: space-evenly;
+    width: 65%;
+    margin: 4rem auto;
+    font-size: 2rem;
 }
 
 .button_area {
@@ -67,8 +106,7 @@ main{
         width: 12rem;
         height: 7rem;
         background-color: #2E2E2E;
-        color: #fff;
-        border: #fff solid 2px;
+        border: solid 2px;
         margin: 1rem;
         border-radius: 1rem;
     }
