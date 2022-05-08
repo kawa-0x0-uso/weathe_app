@@ -110,6 +110,9 @@ main {
 }
 
 .button_area button.btn_city {
+  font-family: "DotGothic16";
+  font-weight: bold;
+  font-size: 1.4rem;
   width: 12rem;
   height: 7rem;
   background-color: #2E2E2E;
