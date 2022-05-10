@@ -38,9 +38,8 @@ document.querySelectorAll(".btn_city").forEach(function (city) {
 async function callApi(city){
     const res = await fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&lang=ja&APPID=" + API_KEY);
     const weather = await res.json();
-
+    console.log(weather);
     const icons = {
-        common : "fa-solid",
         Ikebukuro : ["fa-headphones","fa-futbol","fa-chess"],
         Yokohama : ["fa-skull","fa-handcuffs","fa-dharmachakra"],
         Shibuya : ["fa-candy-cane","fa-dice","fa-pen-nib"],
@@ -53,7 +52,8 @@ async function callApi(city){
     
     // 日付の表示をテーマカラーに変更する
     let dateArea = document.getElementById("dateArea");
-    dateArea.classList.add("class",city);
+    dateArea.removeAttribute("class");
+    dateArea.classList.add("class","date_area",city);
 
     // 取得したい情報と値を配列に格納
     const weather_Info ={
@@ -73,14 +73,26 @@ async function callApi(city){
 
         switch(key){
             case "weatherCity" :
+                // 地名のフォントカラーをテーマカラーに変更
                 weatherDate.innerText = weather_Info[key];
-                weatherDate.setAttribute("class",city);          
-                for(let i = 0;i<3;i++){
-                    const iconsArea = document.getElementById("iconsArea");
-                    let icon = document.createElement("i");
-                    icon.classList.add(icons.common,icons[city][i],city);
-                    iconsArea.appendChild(icon);
-                };
+                weatherDate.removeAttribute("class");
+                weatherDate.setAttribute("class",city);
+
+                // １番目のアイコン表示、テーマカラーに変更
+                let icon = document.getElementById("icon_first");
+                icon.removeAttribute("class");
+                icon.classList.add("class","fa-solid",icons[city][0],city);
+
+                // ２番目のアイコン表示、テーマカラーに変更
+                icon = document.getElementById("icon_second");
+                icon.removeAttribute("class");
+                icon.classList.add("class","fa-solid",icons[city][1],city);
+
+                // ３番目のアイコン表示、テーマカラーに変更
+                icon = document.getElementById("icon_third");
+                icon.removeAttribute("class");
+                icon.classList.add("class","fa-solid",icons[city][2],city);
+
                 break;
 
             case "weatherIcon" :
@@ -91,17 +103,13 @@ async function callApi(city){
                 break;
             case "weatherTemp_max" :
                 
-                let high = document.createElement("span");
-                high.innerText = "H";
+                let high = document.getElementById("high");
                 high.setAttribute("class","high");
-                parent.insertBefore(high,weatherTemp_max);
                 weatherDate.innerText = Math.round(weather_Info[key])+ "°";
                 break;
             case "weatherTemp_min" :
-                let low = document.createElement("span");
-                low.innerText = "L";
+                let low = document.getElementById("low");
                 low.setAttribute("class","low");
-                parent.insertBefore(low,weatherTemp_min);
                 weatherDate.innerText = + Math.round(weather_Info[key]) + "°";
                 break;
             case "weatherFeels_like":
